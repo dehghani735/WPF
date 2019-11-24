@@ -1,0 +1,39 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp3"
+      xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:c1="http://schemas.componentone.com/winfx/2006/xaml" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="WpfApp3.mazrab"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="mazrab">
+
+    <Grid x:Name="mainGrid" Margin="10,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <TextBox x:Name="num" HorizontalAlignment="Left" Height="22" Margin="484,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="67" FlowDirection="RightToLeft" Background="White" KeyUp="num_KeyUp" />
+        <Button Content="اجرا" HorizontalAlignment="Left" Margin="535,66,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" FontFamily="B Nazanin"/>
+        <ListView Margin = "238,21,349,43.6" x:Name = "MenList" FontFamily="B Nazanin" VerticalContentAlignment="Center">
+
+            <ListView.View>
+                <GridView>
+
+
+                    <GridViewColumn Header = "پیغام" DisplayMemberBinding = "{Binding dsc}" 
+                  Width = "100"/>
+
+
+
+                    <GridViewColumn Header = "عدد" DisplayMemberBinding = "{Binding nbr}" 
+                  Width = "100"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+        <Label Content="عدد مورد نظر را وارد کنید:" HorizontalAlignment="Left" Margin="556,17,0,0" VerticalAlignment="Top" Width="113" FlowDirection="RightToLeft" FontFamily="B Nazanin"/>
+        <TextBox x:Name="progress" HorizontalAlignment="Left" Height="23" Margin="610,194,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <ProgressBar Name="pbStatus" Value="{Binding PRG}" HorizontalAlignment="Left" Height="10" Margin="535,154,0,0" VerticalAlignment="Top" Width="100"/>
+
+
+
+    </Grid>
+</Page>
