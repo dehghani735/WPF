@@ -1,0 +1,101 @@
+﻿---
+Financial:
+    - Withdrawal
+    - Transfer
+
+Non-Financial:
+    - 
+
+Complete:
+    - Balance
+    - Authentication
+
+Condition:
+    - Correct_PIN
+    - Enough_Cash
+    - Amount
+    - Test1
+
+Before-Checking:
+    - Card_Status
+    - Terminal_Status
+    - Connection_Status
+
+After-Checking:
+    - ATM_Cassettes
+    - Card_Activity
+    - Reduce_Balance
+
+Reverse:
+    - Not_Withdrawal
+
+Bad-Data:
+    - Amount
+    - PIN
+    - Track
+
+Data-Parameters:
+     Cards: # Card_Number and Track are not the same
+        - Card_Number: 5894631511409724
+          Card_Type: Refah
+          Track: ";5894631511409724=99105061710399300020?"
+          PinA: "&gt;106&lt;?1&gt;82&lt;7&gt;9=2"  #is this true or not?
+      
+        - Card_Number: 5894631862983396
+          Card_Type: Shetab
+          Track: "5894631511409724=99105061710399300020"
+          PinA: "&gt;106&lt;?1&gt;82&lt;7&gt;9=2"  #is this true or not?
+
+     Amount: 200000
+     Networks:
+        - Name: ATM
+          ServerIP: "10.15.1.61"
+          Port: "9009"
+
+        - Name: Shetab
+          ServerIP: "10.15.1.63"
+          Port: "9005"
+  
+Expected-Results:
+     - Category: General
+       Condition: Incorrect_PIN Not_Enough_Cash Amount, Name Shetab ffdf, fdfdfd ddfdfd amme
+       State: 112
+       Screen: 888
+       Text: ali
+       Journal: vvv
+
+     - Category: General
+       Condition: Correct_PIN Amount, ~Correct_PIN Amount
+       State: 226
+       Screen: 226
+       Text: Mohammadreza DehghaniTafti
+       Journal: Mohammadreza DehghaniTafti
+
+     - Category: General
+       Condition: Correct_PIN ~Amount, ~Correct_PIN ~Amount
+       State: 555
+       Screen: 555
+       Text: Matia
+       Journal: Perin
+
+     - Category: General
+       Condition: ~Correct_PIN Enough_Cash
+       State: 112
+       Screen: 888
+       Text: cr7
+       Journal: dybala
+
+     - Category: Balance
+       Condition: [~Correct_PIN Enough_Cash]
+       State: 112
+       Screen: 888
+       Text: bonucci
+       Journal: leo
+
+     - Category: General
+       Condition: [Incorrect_PIN]
+       State: 112
+       Screen: 888
+       Text: mdt
+       Journal: vvv
+...

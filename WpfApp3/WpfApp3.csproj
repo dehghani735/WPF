@@ -36,6 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.WPF.4, Version=4.0.20171.549, Culture=neutral, PublicKeyToken=2aa4ec5576d6c3ce, processorArchitecture=MSIL" />
+    <Reference Include="CsvHelper, Version=13.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.13.0.0\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Mvvm.v17.1, Version=17.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Core.v17.1, Version=17.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -43,6 +46,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,20 +64,47 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="YamlDotNet, Version=8.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+      <HintPath>..\packages\YamlDotNet.8.1.0\lib\net45\YamlDotNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ReplyBalance.cs" />
+    <Compile Include="ReplyTransfer.cs" />
+    <Compile Include="ReplyWithdrawal.cs" />
+    <Compile Include="ReportBase.cs" />
+    <Compile Include="Reporter.cs" />
+    <Compile Include="ReversePlan.cs" />
+    <Compile Include="Socket.cs" />
+    <Compile Include="TestApplication.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionConfig.cs" />
+    <Compile Include="Transfer.cs" />
+    <Compile Include="Withdrawal.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AfterChecking.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BadDataPlan.cs" />
+    <Compile Include="Balance.cs" />
+    <Compile Include="BeforeChecking.cs" />
+    <Compile Include="Card.cs" />
+    <Compile Include="CompletePlan.cs" />
+    <Compile Include="ConditionBasedPlan.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="DB.cs" />
+    <Compile Include="ExpectedResult.cs" />
+    <Compile Include="FFile.cs" />
+    <Compile Include="FormSubscriber.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -85,6 +118,12 @@
     <Compile Include="mazrab.xaml.cs">
       <DependentUpon>mazrab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NDCTransactionReplyCommand.cs" />
+    <Compile Include="NDCTransactionRequestMessage.cs" />
+    <Compile Include="Network.cs" />
+    <Compile Include="Plan.cs" />
+    <Compile Include="PlanFactory.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -103,6 +142,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Config.yaml" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
